@@ -380,7 +380,7 @@ $(document).ready(function() {
       //accesing apiKey from config.json
       var myKey = JSON.parse(apiKey); //convert JSON data into js object 
 
-      //dynamically ctreating the script element and giving rc attribute to the google plugin with key from external json file
+      //dynamically creating the script element and giving rc attribute to the google plugin with key from external json file
       var script = document.createElement('script');
       script.src ='https://maps.googleapis.com/maps/api/js?key='+ myKey[0].key + '&callback=initMap'; //copy the key from above "mykey[0}.key; dinamic key";
       document.getElementsByTagName('body')[0].appendChild(script);
