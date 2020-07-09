@@ -308,17 +308,14 @@ var accommodations = [
 
 
 /*LANDING PAGE BACKGROUNDS*/
-
 function cycleBackgrounds() {
   var index = 0;
   $imageEls = $('.container-slides .slide'); // Get the images to be cycled.
   setInterval(function () {
     // Get the next index.  If at end, restart to the beginning.
     index = index + 1 < $imageEls.length ? index + 1 : 0;
-
     // Show the next
     $imageEls.eq(index).addClass('show');
-
     // Hide the previous
     $imageEls.eq(index - 1).removeClass('show');
   }, 4000);
@@ -330,27 +327,25 @@ $(function () {
 });
 
 
-//TRANSITIONS
+/*TRANSITIONS*/
 //BACK TO TOP
 var backToTop = $("#backBtn");
 //The pixel amount scrolled before back to top button appears
 var scrollAmount = 150;
+      $(window).scroll( function() {
+      if ($(this).scrollTop() > scrollAmount) {
+      backToTop.fadeIn();
+      } else {
+      backToTop.fadeOut();
+      }
+      });
 
-$(window).scroll( function() {
-  if ($(this).scrollTop() > scrollAmount) {
-    backToTop.fadeIn();
-  } else {
-    backToTop.fadeOut();
-  }
-});
-
-backToTop.click( function(e) {
-  $("html, body").animate({scrollTop: 0}, 300);
-});
+      backToTop.click( function(e) {
+      $("html, body").animate({scrollTop: 0}, 300);
+      });
 
 
 /*DATE PICKER*/
-
 $("#checkInDate").datepicker({
   dateFormat: 'yy-mm-dd',
   changeMonth: true,
@@ -365,10 +360,7 @@ $("#checkInDate").datepicker({
      //Set Minimum Date of EndDatePicker After Selected Date of StartDatePicker
       $("#checkOutDate").datepicker( "option", "minDate", stDate );
       var enDate = new Date(selectedDate.getTime() + 15 * msecsInADay);
-
-
       $("#checkOutDate").datepicker( "option", "maxDate", enDate );
-
   }
 });
 
@@ -378,8 +370,7 @@ $("#checkOutDate").datepicker({
 });
 
 
-
-//INITIALIZE MAP
+/*INITIALIZE MAP*/
 var hotelMap;
 var hotelMarkers = [];
 var hotelWindows = [];
