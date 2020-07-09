@@ -1,5 +1,6 @@
-/*OBJECTS*/
+console.log('NZ tourism');
 
+/*OBJECTS*/
 var accommodations = [
 
 //AUCKLAND//
@@ -208,7 +209,7 @@ var accommodations = [
       phoneNumber: '0800 508 025',
       website: 'www.villagegroup.com',
       description: 'On a side street off a bustling road in the city centre, this relaxed apartment hotel is a 13-minute walk from history exhibits at the Museum of New Zealand Te Papa Tongarewa and 1 km from Wellington Railway Station.\ Casual apartments range from studios to 4-bedroom units, and feature living areas, and kitchens with Nespresso machines and dishwashers. All offer free Wi-Fi, flat-screen TVs, fans and washer/dryers. Some have balconies or patios with city views, and/or sleep up to 4 people.\ Parking is available for a surcharge.', 
-      image: 'images/boulcottRoom.jpg',
+      image: 'images/boulcottRoom.jpeg',
       price: 240,
       guestMin: 1,
       guestMax: 4,
@@ -290,7 +291,7 @@ var accommodations = [
       phoneNumber: '03-442 7629',
       website: 'www.colonialvillage.co.nz',
       description: '', 
-      image: 'images/colonialMotelRoom.jpg',
+      image: 'images/qtnMotelRoom.jpg',
       price: 90,
       guestMin: 1,
       guestMax: 4,
@@ -372,6 +373,7 @@ $("#checkOutDate").datepicker({
 
 /*INITIALIZE MAP*/
 var hotelMap;
+var center;
 var hotelMarkers = [];
 var hotelWindows = [];
 
@@ -387,73 +389,81 @@ $(document).ready(function() {
 
 });
 
-function initMap() {
-      var auckland = {lat:-36.8485  ,lng: 174.7633};
-      var wellington = {lat: -41.2732596, lng: 174.7762};
-      var queenstown = {lat: -45.0312, lng: 168.6626};
+      // function initMap(l) { //call initMap function
 
-      hotelMap = new google.maps.Map(
-            document.getElementById('map'), {zoom: 13, center: auckland});
-                  
-                  
-}
+      //       if (l === "Wellington"){
+      //             center = {lat: -41.2732596, lng: 174.7762};
+      //       }else if (l === "Auckland") {
+      //             center = {lat:-36.8485  ,lng: 174.7633};      
+      //       }else if (l === "Queenstown") {
+      //             center = {lat: -45.0312, lng: 168.6626};
+      //       }
+            
 
-function clearMarkers() {
-      for (let i in hotelMarkers ){
-            hotelMarkers[i].setMap(null);
-            hotelMarkers[i] = null;
-            hotelWindows[i] = null;
+      //       var hotelMap = new google.maps.Map(document.getElementById('map'), {
+      //             center: center,
+      //             zoom: 13,
+      //       });  
+      // }
+
+      function initMap() {
+            hotelMap = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -41.3052685, lng: 175.7267386},
+              zoom: 6
+            });
+          }
+
+      function clearMarkers() {
+            for (let i in hotelMarkers ){
+                  hotelMarkers[i].setMap(null);
+                  hotelMarkers[i] = null;
+                  hotelWindows[i] = null;
+            }
+            hotelMarkers = [];
+            hotelWindows = [];
       }
 
-      hotelMarkers = [];
-      hotelWindows = [];
-}
+      // hotelModal
 
-// hotelModal
+      // function hotelModal(id) {
+      //       result = accommodations.filter( element => element.id == id );
 
-// function hotelModal(id) {
-//       result = accommodations.filter( element => element.id == id );
+      //       console.log(result[0]);
+      // }
 
-//       console.log(result[0]);
-// }
+      // INFO WINDOW
+      function createInfoWindow(marker, result, calculations) {
+            var contentString = `
+                  <div id="content">
+                  <img class"text-center" src="${result.image}">
+                  <h1 id="firstHeading" class="firstHeading">${result.Name}</h1>
+                  <div id="bodyContent">
+                  <h3><b>${result.city} ${result.island}</b><h3>
+                  <h6><i class="fas fa-map-signs"></i>${result.address}</h6>
+                  <h6 class="btn-link"><i class="fas fa-globe"></i> ${result.website}</h6>
+                  <h6><i class="fas fa-phone"></i> ${result.phoneNumber}</h6>
+                  <h5><i class="fas fa-dollar-sign"></i> ${result.price}/night</h5>
+                  <p>${result.description}</p>
+                  <h5> Total Price: <i class="fas fa-dollar-sign"></i> ${calculations.total} NZD</h5>
+                  <div>${result.iframe}</div>
+                  <a href="#userFeedback"><button class="btn btn-blue btn-lg btn-block">Book Now</button></a>
+                  
+            `;
 
-// INFO WINDOW
-function createInfoWindow(marker, result, calculations) {
-
-      var contentString = `
-            <div id="content">
-            <img class"text-center" src="${result.image}">
-            <h1 id="firstHeading" class="firstHeading">${result.Name}</h1>
-            <div id="bodyContent">
-            <h3><b>${result.city} ${result.island}</b><h3>
-            <h6><i class="fas fa-map-signs"></i>${result.address}</h6>
-            <h6 class="btn-link"><i class="fas fa-globe"></i> ${result.website}</h6>
-            <h6><i class="fas fa-phone"></i> ${result.phoneNumber}</h6>
-            <h5><i class="fas fa-dollar-sign"></i> ${result.price}/night</h5>
-            <p>${result.description}</p>
-            <h5> Total Price: <i class="fas fa-dollar-sign"></i> ${calculations.total} NZD</h5>
-            <div>${result.iframe}</div>
-            <a href="#userFeedback"><button class="btn btn-blue btn-lg btn-block">Book Now</button></a>
-            
-      `;
-
-      return new google.maps.InfoWindow({
-            content: contentString
-      });
-}
+            return new google.maps.InfoWindow({
+                  content: contentString
+            });
+      }
 
 //TOTAL CALCULATIONS: DAYS * GUESTS * (MEAL + PRICE)
 function doCalculations(result) {
-
       return {
             total: daysBetween( searchData.checkin, searchData.checkout)  * parseInt(searchData.guests) * (result.price + parseInt(searchData.meals)) 
       };
 }
 
-
 //MARKERS
 function createMarker(result) {
-
       var marker = new google.maps.Marker({
             position: {
                   lat: result.lat,
@@ -462,12 +472,10 @@ function createMarker(result) {
             map: hotelMap,
             title: result.Name
       });
-
       return marker;
 }
 
 function mapMarkers(results) {
-
       clearMarkers();
 
       for(let i in results) {
@@ -479,7 +487,6 @@ function mapMarkers(results) {
                   hotelWindows[i].open(hotelMap, hotelMarkers[i]);
             });
       }
-
       // Animar o Mover el Mapa hacia donde estén los resultados
 
 }
@@ -511,14 +518,9 @@ $(document).ready(function() {
             mapMarkers(results);
 
             // Habilitar un modal con cada uno de los resultados
-            /// Calcular los datos que van en el modal
-            
+            /// Calcular los datos que van en el modal     
       });
 });
-
-
-
-
 
 
 //DAYS CALCULATION
@@ -528,22 +530,18 @@ var daysBetween = function(a,b) {
       var outDate = new Date(b);
 
       return (outDate.getTime() - inDate.getTime()) / 86400000;
-
 };
 
-
-//FILTERS
+// FILTERS
 function searchObjects(searchData) {
       console.log(searchData);
       function isGuestNumberLegit(guestNum, guestMin, guestMax) {
             return (!(guestNum <= guestMin || guestNum <= guestMax)); 
-
       }
       function choosenFood(guestFood, breakfast, lunch, dinner, all) {
             return (!(guestFood == breakfast || guestFood == lunch || guestFood == dinner || guestFood == all));
       }
       
-
       var results = [];
       console.log(results);
       for(let place of accommodations) {
@@ -555,37 +553,25 @@ function searchObjects(searchData) {
 
             //GUESTS
             var guests = parseInt(searchData.guests);
-
             if (isGuestNumberLegit(guests, place.guestMin, place.guestMax)) {
                   continue;
             }
 
             // DATES RANGE
             var days = daysBetween( searchData.checkin, searchData.checkout);
-
             if( !(place.nightsMin <= days && days <= place.nightsMax) ) {
                   continue;
             }
 
             //MEALS
-
             var food = parseInt(searchData.meals);
-           if (choosenFood(searchData.breakfast, searchData.lunch, searchData.dinner, searchData.all)){
+            if (choosenFood(searchData.breakfast, searchData.lunch, searchData.dinner, searchData.all)){
                   continue;
-
            }
-       
-
-
-
-
-
 
             results.push(place);
       }
       return results;
-      
-
 }
 
 
