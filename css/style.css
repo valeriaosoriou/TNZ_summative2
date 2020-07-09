@@ -1,0 +1,208 @@
+.fab {
+  color: #ffffff;
+  font-size: 50px;
+  padding: 15px; }
+
+.fas {
+  color: #0099cc; }
+
+.img-logo {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+  height: 400px;
+  z-index: 2; }
+
+/*SECTION2: USER INPUT*/
+.img-sky {
+  position: relative;
+  background-image: url("../images/sky.jpg");
+  /* The image used */
+  background-color: #0099cc;
+  /* Used if the image is unavailable */
+  height: 1080px;
+  /* You must set a specified height */
+  width: 1920px;
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */ }
+
+.img-kiaora {
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  height: 200px;
+  width: 700px; }
+
+.img-map {
+  position: relative;
+  background-image: url("../images/otago.jpg");
+  /* The image used */
+  background-color: #0099cc;
+  /* Used if the image is unavailable */
+  height: 1080px;
+  /* You must set a specified height */
+  width: 1920px;
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */ }
+
+/*SECTION4: USER FEEDBACK*/
+.img-feedback {
+  position: relative;
+  background-image: url("../images/tongariro.jpg");
+  /* The image used */
+  background-color: #0099cc;
+  /* Used if the image is unavailable */
+  height: 1080px;
+  /* You must set a specified height */
+  width: 1920px;
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */ }
+
+.img-kiaora_black {
+  width: 800px;
+  height: 350px;
+  padding: 50px; }
+
+/*FOOTER*/
+.img-footer {
+  height: 80px;
+  width: auto;
+  float: right; }
+
+/*HEADER*/
+.img-header {
+  width: 600px; }
+
+/*FORM*/
+.form-background {
+  background-color: #ffffff;
+  height: 600px;
+  padding: 50px 60px 50px 60px;
+  margin-top: 100px;
+  margin-left: 100px; }
+
+.col-form {
+  padding-bottom: 400px; }
+
+.ui-wiget {
+  color: #0099cc;
+  border: #818487; }
+
+.ui-corner-all {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px; }
+
+.ui-widget-content {
+  background: none;
+  background-color: #ffffff; }
+
+.ui-widget-header {
+  background: none;
+  background-color: #0099cc;
+  border: #0099cc; }
+
+.checkin {
+  width: 400px;
+  border-radius: 4px;
+  border-color: #ced4da; }
+
+.checkout {
+  width: 400px;
+  border-radius: 4px;
+  border-color: #ced4da; }
+
+#meals {
+  margin-top: 20px; }
+
+/*TRANSITIONS*/
+html {
+  scroll-behavior: smooth; }
+
+/*SECTION1: LANDING*/
+.container-slides {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  padding-left: 0px; }
+
+.container-slides.slide {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0; }
+
+.container-slides.slide.show {
+  opacity: 1; }
+
+.slide.show {
+  height: 1080px;
+  width: 1920px; }
+
+.btn-blue {
+  background-color: #0099cc;
+  color: #ffffff; }
+
+.btn-dark {
+  border-color: #000000;
+  background-color: #000000;
+  border-radius: 0px; }
+
+.btn-header {
+  padding-top: 60px;
+  padding-right: 40px; }
+
+.footer-style {
+  background-color: #000000;
+  height: 80px; }
+
+/*SECTION3: MAP*/
+.container-map {
+  background-color: #ffffff;
+  height: 700px; }
+
+#map {
+  width: 1920px;
+  height: 802px; }
+
+.header-search {
+  background-color: #000000;
+  height: 200px;
+  padding-left: 50px;
+  padding-top: 60px; }
+
+/*SECTION4: USER FEEDBACK*/
+.container-background {
+  background-color: #ffffff;
+  width: 800px; }
+
+.col-feedback {
+  margin-top: 100px;
+  margin-left: 100px;
+  padding-bottom: 310px; }
+
+* {
+  margin: 0px; }
+
+body {
+  width: 1920px; }
+
+h2 {
+  padding: 10px 50px 10px 50px;
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */

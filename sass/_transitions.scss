@@ -1,0 +1,34 @@
+/*TRANSITIONS*/
+html {
+  scroll-behavior: smooth;
+ }
+ 
+/*SECTION1: LANDING*/
+.container-slides{
+	width: 1920px;
+	height: 1080px;
+	position: relative;
+	padding-left: 0px;
+}
+.container-slides.slide {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+}
+
+.container-slides.slide.show {
+  opacity: 1;
+
+}
+.slide.show{
+	height: 1080px;
+	width: 1920px;
+}

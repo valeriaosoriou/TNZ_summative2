@@ -1,0 +1,69 @@
+.img-logo{
+	position: absolute;
+	top: 20px;
+	left: 300px;
+	height: 400px;
+	z-index: 2;
+}
+
+
+/*SECTION2: USER INPUT*/
+.img-sky{
+	position: relative;
+	background-image: url("../images/sky.jpg"); /* The image used */
+  	background-color: $oceanblue; /* Used if the image is unavailable */
+  	height: 1080px; /* You must set a specified height */
+  	width: 1920px;
+  	background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.img-kiaora{
+	position: absolute;
+	top: 300px;
+	right: 100px;
+	height: 200px;
+	width: 700px;
+}
+
+.img-map{
+	position: relative;
+	background-image: url("../images/otago.jpg"); /* The image used */
+  	background-color: $oceanblue; /* Used if the image is unavailable */
+  	height: 1080px; /* You must set a specified height */
+  	width: 1920px;
+  	background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+
+
+
+/*SECTION4: USER FEEDBACK*/
+.img-feedback{
+	position: relative;
+	background-image: url("../images/tongariro.jpg"); /* The image used */
+  	background-color: $oceanblue; /* Used if the image is unavailable */
+  	height: 1080px; /* You must set a specified height */
+  	width: 1920px;
+  	background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.img-kiaora_black{
+	width: 800px;
+	height: 350px;
+	padding: 50px;
+}
+
+/*FOOTER*/
+.img-footer{
+	height: 80px;
+	width: auto;
+	float: right;
+}
+
+/*HEADER*/
+.img-header{
+	width: 600px;
+}

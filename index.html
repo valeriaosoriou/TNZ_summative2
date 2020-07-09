@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Requiered META TAGS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"> 
+    
+    <!-- DATE PICKER -->
+      <link href = "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-3.4.1.js"></script>
+      <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Accommodation: Tourism New Zealand</title>
+  </head>
+  
+  <body>
+
+    <!-- SECTION1: LANDING -->
+    <a href="#userInput"><section class="container-fluid img-landing">
+        <div class="row">
+            <div class="col container-slides">
+                <img class="img-logo" src="images/logoWhite.png" alt="logo">
+                <div class="slide show" style="background-image: url('images/landingImg.jpg');"></div>
+                <div class="slide show" style="background-image: url('images/tongariro.jpg');"></div>
+                <div class="slide show" style="background-image: url('images/otago.jpg');"></div>
+
+            </div>  <!-- end section col-->
+        </div><!-- end section row-->
+    </section></a>
+
+    <!-- SECTION2: USER INPUT -->
+    <section class="container-fluid img-sky" id="userInput">
+        <div class="row">
+            <div class="col-6 col-form">
+                <!-- FORM -->
+                <div class="container form-background">                
+                <form id="searchForm" class="form-group">
+                    <h2> Kia Ora, welcome. Start planning your next holidays, here you can find: hotels, houses, motels and more.</h2>
+                    <select class="form-control custom-select-lg" id="location">
+                        <option>Location</option>
+                        <optgroup label="NORTH ISLAND">
+                            <option value="Auckland">Auckland</option>
+                            <option value="Wellington">Wellington</option>
+                        </optgroup>
+                        <optgroup label="SOUTH ISLAND">
+                            <option value="Queenstown">Queenstown</option>   
+                        </optgroup>
+                    </select><br>
+                    <select class="form-control custom-select-lg" id="guests">
+                        <option>Guests</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>   
+                    </select><br>
+                    <input class="custom-select-lg checkin" type="text" id="checkInDate" placeholder="Check in" autocomplete="off">
+                    <input class="custom-select-lg checkout" type="text" id="checkOutDate" placeholder="Check out" autocomplete="off">
+                    <br>
+                    <select class="form-control custom-select-lg" id="meals">
+                        <option>Meals options</option>
+                        <option value="25" id="breakfast">Breakfast - $25 NZD</option>
+                        <option value="30" id="lunch">Lunch - $30 NZD</option>
+                        <option value="35" id="dinner">Dinner - $35 NZD</option>
+                        <option value="70" id="all">All - $ 70 NZD</option>
+                        <option value="0" id="none">None</option>   
+                    </select><br>
+                    <input type="submit" class="btn btn-blue btn-lg btn-block" value="Search">
+                </form>
+                
+                </div> 
+            </div> <!-- end section col right-->
+            <div class="col-6">
+                <img class="img-kiaora" src="images/kiaOraWhite.png" alt="logo">        
+            </div> <!-- end section col left-->
+            
+        </div>  <!-- end section row-->
+       <!-- Footer -->
+        <div class="row footer-style">
+            <div class="col">
+                <a href="https://www.facebook.com/purenewzealand/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/purenewzealand/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/PureNewZealand?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            </div>
+            <div class="col">
+                <img class="img-footer" src="images/logoWhite.png" alt="logo">
+            </div>   
+        </div>
+
+    </section> <!-- END SECTION2 -->
+
+
+
+    <!-- SECTION3: MAP -->
+    <section class="container-fluid img-map" id="header">
+        <!-- HEADER -->
+        <div class="row header-search">
+            <div class="col-10">
+                <img class="img-header" src="images/accommodationWhite.png" alt="logo">
+            </div>
+            <div class="col-2 btn-header">
+                <a class="btn btn-blue btn-lg btn-block" href="#userInput">New Search</a>
+            </div>
+        </div>  <!-- end section row header-search-->
+        <!-- MAP -->
+        <div class="container" id="map"></div>
+            
+        <!-- </div> -->
+        <!-- Footer -->
+        <div class="row footer-style">
+            <div class="col">
+                <a href="https://www.facebook.com/purenewzealand/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/purenewzealand/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/PureNewZealand?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            </div>
+            <div class="col">
+                <img class="img-footer" src="images/logoWhite.png" alt="logo">
+            </div>
+            
+        </div>
+    </section> <!-- END SECTION3 -->
+
+
+    
+
+    <!-- SECTION4: USER FEEDBACK -->
+    <section class="container-fluid img-feedback" id="userFeedback">
+        <div class="row">
+            <div class="col col-feedback"> 
+                <div class="container-background">
+                    <img class="img-kiaora_black" src="images/kiaOraBlack.png" alt="logo black">
+                    <h2 class="txt-feedback">
+                    Thank you for visiting our accommodation website.<br><br>
+                    We wish you a safe and a great journey.
+                    </h2><br>
+                    <button type="button" class="btn btn-dark btn-block" id="backBtn">BACK</button>
+                </div>
+            </div> <!-- end section col right-->
+        </div>  <!-- end section row-->
+        <div class="row footer-style">
+            <div class="col">
+                <a href="https://www.facebook.com/purenewzealand/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/purenewzealand/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/PureNewZealand?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            </div>
+            <div class="col">
+                <img class="img-footer" src="images/logoWhite.png" alt="logo">
+            </div>
+            
+        </div>
+    </section> <!-- END SECTION4 -->
+
+
+
+
+    
+    <!-- BOOTSTRAP -->
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <!-- JSON -->
+    <script src="js/config.json"></script>
+    <!-- CUSTOM JS SCRIPT -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
