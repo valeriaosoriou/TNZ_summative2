@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 console.log('NZ tourism');
 
 /*OBJECTS*/
