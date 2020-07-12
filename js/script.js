@@ -373,6 +373,7 @@ $("#checkOutDate").datepicker({
 
 
 /*INITIALIZE MAP*/
+var apiKey;
 var hotelMap;
 var center;
 var hotelMarkers = [];
@@ -389,23 +390,6 @@ $(document).ready(function() {
       document.getElementsByTagName('body')[0].appendChild(script);
 
 });
-
-      // function initMap(l) { //call initMap function
-
-      //       if (l === "Wellington"){
-      //             center = {lat: -41.2732596, lng: 174.7762};
-      //       }else if (l === "Auckland") {
-      //             center = {lat:-36.8485  ,lng: 174.7633};      
-      //       }else if (l === "Queenstown") {
-      //             center = {lat: -45.0312, lng: 168.6626};
-      //       }
-            
-
-      //       var hotelMap = new google.maps.Map(document.getElementById('map'), {
-      //             center: center,
-      //             zoom: 13,
-      //       });  
-      // }
 
       function initMap() {
             hotelMap = new google.maps.Map(document.getElementById('map'), {
@@ -424,16 +408,9 @@ $(document).ready(function() {
             hotelWindows = [];
       }
 
-      // hotelModal
-
-      // function hotelModal(id) {
-      //       result = accommodations.filter( element => element.id == id );
-
-      //       console.log(result[0]);
-      // }
 
       // INFO WINDOW
-      function createInfoWindow(marker, result, calculations) {
+      function createInfoWindow(result, calculations) {
             var contentString = `
                   <div id="content">
                   <img class"text-center" src="${result.image}">
@@ -478,7 +455,7 @@ function createMarker(result) {
 
 function mapMarkers(results) {
       clearMarkers();
-
+      var result;
       for(let i in results) {
             result = results[i];
             hotelMarkers[i] = createMarker(result);
@@ -574,5 +551,3 @@ function searchObjects(searchData) {
       }
       return results;
 }
-
-
